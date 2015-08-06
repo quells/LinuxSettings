@@ -7,12 +7,12 @@ apt-get update;
 apt-get upgrade;
 
 # Set up root
-echo 'source ~/.bash_profile' >> .bashrc;
+echo 'source ~/.bash_profile' >> ~/.bashrc;
 cp root/.bash_profile ~/.bash_profile;
 cp root/.bash_color ~/.bash_color;
 cp root/.vimrc ~/.vimrc;
 cp root/.tmux.conf ~/.tmux.conf;
-source .bashrc;
+source ~/.bashrc;
 
 # Set up user
 useradd -md /home/User -s /bin/bash -U User;
