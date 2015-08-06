@@ -10,10 +10,11 @@ apt-get upgrade;
 echo 'Setting Root Password';
 passwd;
 echo 'source ~/.bash_profile' >> ~/.bashrc;
-cp root/.bash_profile ~/.bash_profile;
-cp root/.bash_color ~/.bash_color;
-cp root/.vimrc ~/.vimrc;
-cp root/.tmux.conf ~/.tmux.conf;
+cp root/.bash_profile ~/;
+cp root/.bash_color   ~/;
+cp -r root/.vim       ~/;
+cp root/.vimrc        ~/;
+cp root/.tmux.conf    ~/;
 source ~/.bashrc;
 
 # Set up user
@@ -21,13 +22,16 @@ useradd -md /home/User -s /bin/bash -U User;
 echo 'Setting User Password';
 passwd User;
 echo 'source ~/.bash_profile' >> /home/User/.bashrc;
-cp user/.bash_profile /home/User/.bash_profile;
-cp user/.bash_color /home/User/.bash_color;
-cp user/.vimrc /home/User/.vimrc;
-cp user/.tmux.conf /home/User/.tmux.conf;
+cp user/.bash_profile /home/User;
+cp user/.bash_color   /home/User;
+cp -r user/.vim       /home/User;
+cp user/.vimrc        /home/User;
+cp user/.tmux.conf    /home/User;
 
 # Set up programs
 apt-get install apache2;
+ln -s /var/www/html /home/User/www;
+chmod 777 /var/www/html;
 ufw allow ssh;
-ufw allow tcp;
+ufw allow http;
 ufw enable;
