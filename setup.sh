@@ -7,6 +7,8 @@ apt-get update;
 apt-get upgrade;
 
 # Set up root
+echo 'Setting Root Password';
+passwd;
 echo 'source ~/.bash_profile' >> ~/.bashrc;
 cp root/.bash_profile ~/.bash_profile;
 cp root/.bash_color ~/.bash_color;
