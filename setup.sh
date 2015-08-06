@@ -27,6 +27,9 @@ cp user/.bash_color   /home/User;
 cp -r user/.vim       /home/User;
 cp user/.vimrc        /home/User;
 cp user/.tmux.conf    /home/User;
+chown User:User /home/User/.bash_profile;
+chown User:User /home/User/.vimrc;
+chown User:User /home/User/.tmux.conf;
 
 # Set up programs
 apt-get install apache2;
