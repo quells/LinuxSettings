@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 # Update packages
 aptitude update;
@@ -28,3 +28,4 @@ cp user/.tmux.conf /home/User/.tmux.conf;
 apt-get install apache2;
 ufw allow ssh;
 ufw allow tcp;
+ufw enable;
