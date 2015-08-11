@@ -18,23 +18,25 @@ cp root/.tmux.conf    ~/;
 source ~/.bashrc;
 
 # Set up user
-useradd -md /home/User -s /bin/bash -U User;
-echo 'Setting User Password';
-passwd User;
-echo 'source ~/.bash_profile' >> /home/User/.bashrc;
-cp user/.bash_profile /home/User;
-cp user/.bash_color   /home/User;
-cp -r user/.vim       /home/User;
-cp user/.vimrc        /home/User;
-cp user/.tmux.conf    /home/User;
-chown User:User /home/User/.bash_profile;
-chown User:User /home/User/.vimrc;
-chown User:User /home/User/.tmux.conf;
+USERNAME='User'
+useradd -md /home/$USERNAME -s /bin/bash -U $USERNAME;
+echo 'Setting' $USERNAME 'Password';
+passwd $USERNAME;
+echo 'source ~/.bash_profile' >> /home/$USERNAME/.bashrc;
+cp user/.bash_profile /home/$USERNAME;
+cp user/.bash_color   /home/$USERNAME;
+cp -r user/.vim       /home/$USERNAME;
+cp user/.vimrc        /home/$USERNAME;
+cp user/.tmux.conf    /home/$USERNAME;
+chown $USERNAME:$USERNAME /home/$USERNAME/.bash_profile;
+chown $USERNAME:$USERNAME /home/$USERNAME/.vimrc;
+chown $USERNAME:$USERNAME /home/$USERNAME/.tmux.conf;
 
 # Set up programs
 apt-get install apache2;
-ln -s /var/www/html /home/User/www;
+ln -s /var/www/html /home/$USERNAME/www;
 chmod 777 /var/www/html;
+apt-get install php5 libapache2-mod-php5 php5-mcrypt;
 ufw allow ssh;
 ufw allow http;
 ufw enable;
