@@ -1,8 +1,8 @@
 #!/bin/bash
 
-bash update.sh;
-bash setup_root.sh;
+sudo bash update.sh;
+sudo bash setup_root.sh;
 
-bash setup_webserver.sh;
+sudo bash setup_webserver.sh;
 
-bash setup_user.sh;
+sudo bash setup_user.sh;

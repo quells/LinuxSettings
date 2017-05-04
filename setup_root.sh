@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # Set up root
-echo 'Setting Root Password';
-passwd;
-echo 'source ~/.bash_profile' >> ~/.bashrc;
-cp root/.bash_profile ~/;
-cp root/.bash_color   ~/;
-cp -r root/.vim       ~/;
-cp root/.vimrc        ~/;
-cp root/.tmux.conf    ~/;
-source ~/.bashrc;
+cp scripts/bash_profile.sh $HOME/.bash_profile;
+cp scripts/root_color.sh   $HOME/.bash_color;
+cp scripts/vimrc.sh        $HOME/.vimrc;
+cp scripts/tmux.conf       $HOME/.tmux.conf;
+
+echo 'source $HOME/.bash_profile' >> $HOME/.bashrc;
+source $HOME/.bashrc;
